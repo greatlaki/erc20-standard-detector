@@ -1,0 +1,24 @@
+exclude: migrations
+default_stages: [commit]
+fail_fast: true
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+  - id: trailing-whitespace
+    exclude: static
+  - id: end-of-file-fixer
+    exclude: static
+  - id: pretty-format-json
+    args: [--autofix]
+
+- repo: https://github.com/psf/black
+  rev: 24.4.2
+  hooks:
+    - id: black
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.5.1
+  hooks:
+    - id: ruff

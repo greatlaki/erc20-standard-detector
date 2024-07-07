@@ -3,7 +3,7 @@ import contextlib
 from typing import AsyncIterator
 
 from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine, AsyncConnection
+from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
 
 from settings import settings
 
@@ -47,7 +47,7 @@ class Engines(object):
     async def test_connect(self):
         async def check_pg_connection():
             async with self.pg_engine.connect() as conn:
-                await conn.execute(text('SELECT version()'))
+                await conn.execute(text("SELECT version()"))
 
         await asyncio.gather(check_pg_connection())
 
