@@ -20,4 +20,4 @@ class Contract(Base):
     source_code: Mapped[str] = mapped_column()
     is_erc_20: Mapped[bool] = mapped_column(server_default="f")
     erc20_version: Mapped[str] = mapped_column(server_default="")
-    status: Mapped[str] = mapped_column(ChoiceType(ContractStatus), default=ContractStatus.WAITS_PROCESSING)
+    status: Mapped[str] = mapped_column(ChoiceType(ContractStatus), server_default=ContractStatus.WAITS_PROCESSING)

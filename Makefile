@@ -21,7 +21,7 @@ migrations:
 .PHONY: migrate
 migrate:
 	$(call log, Started migrate)
-	poetry run app/alembic upgrade head
+	poetry run alembic -c app/alembic.ini upgrade head
 
 .PHONY: run
 run:

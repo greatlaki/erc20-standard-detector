@@ -2,7 +2,7 @@ import asyncio
 from logging.config import fileConfig
 
 from alembic import context
-from pg.models import Base, Contract  # noqa: F401
+from app.pg.models import Base, Contract  # noqa: F401
 from sqlalchemy import Connection, engine_from_config, pool
 from sqlalchemy.ext.asyncio import AsyncEngine
 
