@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 
@@ -21,6 +22,7 @@ async def run_scheduler(sender_client: BaseMessageSenderClient, manager, service
                 )
             else:
                 logging.info("No contracts to publish.")
+                await asyncio.sleep(100)
         except Exception as ex:
             logging.error(f"Publisher Error: {ex}")
             raise ex

@@ -33,7 +33,7 @@ class BaseMessageSenderClient:
         if not self._records:
             return
 
-        logger.debug(f'Sending {len(self._records)} {self.__class__.__name__} Record')
+        logger.debug(f'Sending {len(self._records)} {self.__class__.__name__}')
 
         for record in self._records:
             try:

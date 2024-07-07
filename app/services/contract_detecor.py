@@ -1,4 +1,3 @@
-import json
 import logging
 from typing import Any
 
@@ -19,16 +18,6 @@ class ContractAnalyzeService:
         contracts = await self._contract_manager.analyze_contracts(limit)
         contract_ids = [contract.id for contract in contracts]
         return contracts, contract_ids
-
-    async def receive_contracts(self, message: Any) -> None:
-        try:
-            contracts_data = json.loads(message.body.decode('utf-8'))
-            await self.analyze_contracts(contracts_data)
-            await message.ack()
-        except json.JSONDecodeError as ex:
-            logging.error(f"JSON decoding error handling message: {ex}")
-        except Exception as ex:
-            logging.error(f"Error handling message: {ex}")
 
     async def analyze_contracts(self, contracts_data: list[dict[str, Any]]) -> None:
         logging.info('Analyzing contracts')
