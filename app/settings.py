@@ -5,6 +5,19 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 ENV_FILE = Path.cwd() / ".env"
 
 
+class MQSettings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=ENV_FILE,
+        case_sensitive=True,
+        extra="allow",
+        env_prefix="ENV_MQ_",
+    )
+
+    BROKER_URL: str
+    CONTRACTS_QUEUE: str = 'contracts-queue'
+    SCHEDULER_BATCH_MESSAGES_SIZE: int = 250
+
+
 class PostgresSettings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=ENV_FILE,
@@ -31,10 +44,10 @@ class AppSettings(BaseSettings):
         extra="ignore",
     )
 
-    BROKER_URL: str
-    CONTRACTS_QUEUE: str = 'out-queue'
+    ROWS_LIMIT: int = 100
 
     PG: PostgresSettings = PostgresSettings()
+    MQ: MQSettings = MQSettings()
 
 
 settings: AppSettings = AppSettings()

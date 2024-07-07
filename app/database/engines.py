@@ -2,10 +2,9 @@ import asyncio
 import contextlib
 from typing import AsyncIterator
 
+from settings import settings
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
-
-from settings import settings
 
 
 class Engines(object):

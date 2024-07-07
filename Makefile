@@ -25,4 +25,4 @@ migrate:
 
 .PHONY: run
 run:
-	poetry run python run.py
+	poetry run python app/run.py
