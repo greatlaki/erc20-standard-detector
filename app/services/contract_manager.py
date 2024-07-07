@@ -4,7 +4,7 @@ from schemas.contract import ContractDataToAnalyze, UpdateContractData, UpdateCo
 from sqlalchemy import select, update
 
 
-class ContractStorage:
+class ContractManager:
 
     _table = Contract
 

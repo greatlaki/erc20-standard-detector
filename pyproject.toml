@@ -14,7 +14,8 @@ asyncpg = "^0.29.0"
 sqlalchemy = "^2.0.31"
 sqlalchemy-utils = "^0.41.2"
 alembic = "^1.13.2"
-
+faststream = "^0.5.14"
+aio-pika = "^9.4.2"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.13.2"

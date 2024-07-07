@@ -2,11 +2,11 @@ import asyncio
 from logging.config import fileConfig
 
 from alembic import context
-from app.pg.models import Base, Contract  # noqa: F401
+from settings import settings
 from sqlalchemy import Connection, engine_from_config, pool
 from sqlalchemy.ext.asyncio import AsyncEngine
 
-from settings import settings
+from app.pg.models import Base, Contract  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
