@@ -31,6 +31,9 @@ class AppSettings(BaseSettings):
         extra="ignore",
     )
 
+    BROKER_URL: str
+    CONTRACTS_QUEUE: str = 'out-queue'
+
     PG: PostgresSettings = PostgresSettings()
 
 
